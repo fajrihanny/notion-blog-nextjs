@@ -221,7 +221,7 @@ export default function Post({ page, blocks }) {
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
           <Link href="/" className={styles.back}>
-            ← Go home
+            ← All Posts
           </Link>
         </section>
       </article>
