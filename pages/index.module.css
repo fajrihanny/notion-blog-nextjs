@@ -1,6 +1,6 @@
 .container {
   padding: 0 20px;
-  max-width: 700px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -28,7 +28,7 @@
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #dedede;
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-size: 15px;
   opacity: 0.6;
   letter-spacing: 0.5px;
