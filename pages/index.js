@@ -26,7 +26,7 @@ export default function Home({ posts }) {
         <h2 className={styles.heading}>All Blog Posts</h2>
         <ol className={styles.posts}>
           {posts.map((post) => {
-            const date2 = new Date(post.Date.date).toLocaleString(
+            const date2 = new Date(post.properties.Date.date).toLocaleString(
               "en-US",
               {
                 day: "2-digit",
