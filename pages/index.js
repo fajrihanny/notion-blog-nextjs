@@ -26,6 +26,14 @@ export default function Home({ posts }) {
         <h2 className={styles.heading}>All Blog Posts</h2>
         <ol className={styles.posts}>
           {posts.map((post) => {
+            const date2 = new Date(post.Date.date).toLocaleString(
+              "en-US",
+              {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              }
+            )
             const date = new Date(post.last_edited_time).toLocaleString(
               "en-US",
               {
@@ -42,7 +50,7 @@ export default function Home({ posts }) {
                   </Link>
                 </h3>
 
-                <p className={styles.postDescription}>{date}</p>
+                <p className={styles.postDescription}>{date2}</p>
                 <Link href={`/${post.id}`}>Read post →</Link>
               </li>
             );
