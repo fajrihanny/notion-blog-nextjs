@@ -19,7 +19,7 @@ export default function Home({ posts }) {
         <header className={styles.header}>
           <h1>Fanny's Blog on Notion</h1>
           <p>
-            Musing thoughts
+            Thank you for stopping by. I hope your visit is worthwhile.
           </p>
         </header>
 
