@@ -26,22 +26,16 @@ export default function Home({ posts }) {
         <h2 className={styles.heading}>All Blog Posts</h2>
         <ol className={styles.posts}>
           {posts.map((post) => {
-            const date2 = new Date(post.properties.Date.date).toLocaleString(
+            const date = new Date(post.last_edited_time).toLocaleString(
               "en-US",
               {
                 day: "2-digit",
                 month: "long",
                 year: "numeric",
               }
-            )
-            const date = new Date(post.last_edited_time).toLocaleString(
-              "en-US",
-              {
-                month: "short",
-                day: "2-digit",
-                year: "numeric",
-              }
             );
+            const slug = new Text(post.properties.Slug.text);
+            console.log(slug);
             return (
               <li key={post.id} className={styles.post}>
                 <h3 className={styles.postTitle}>
@@ -50,8 +44,8 @@ export default function Home({ posts }) {
                   </Link>
                 </h3>
 
-                <p className={styles.postDescription}>{date2}</p>
-                <Link href={`/${post.id}`}>Read post →</Link>
+                <p className={styles.postDescription}>{date}</p>
+                <Link href={`/${post.id}`}>Read full post →</Link>
               </li>
             );
           })}
