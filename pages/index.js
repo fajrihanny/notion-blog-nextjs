@@ -34,7 +34,7 @@ export default function Home({ posts }) {
                 year: "numeric",
               },
             );
-            const slug = new Text(post.properties.Slug.text);
+            const slug = post.properties?.Slug?.rich_text[0].text.content;
             console.log(slug);
             return (
               <li key={post.id} className={styles.post}>
