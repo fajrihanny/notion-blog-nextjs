@@ -32,7 +32,7 @@ export default function Home({ posts }) {
                 day: "2-digit",
                 month: "long",
                 year: "numeric",
-              }
+              },
             );
             const slug = new Text(post.properties.Slug.text);
             console.log(slug);
