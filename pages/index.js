@@ -10,23 +10,23 @@ export default function Home({ posts }) {
   return (
     <div>
       <Head>
-        <title>Fanny's Blog on Notion</title>
+        <title>Fanny's Reviews on Notion</title>
         {/* Title on the Blog - not on the page itself */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.container}>
         <header className={styles.header}>
-          <h1>Fanny's Blog on Notion</h1>
+          <h1>Fanny's Reviews on Notion</h1>
           <p>
-            Thank you for stopping by. I hope your visit is worthwhile.
+            I write stuffs.
           </p>
         </header>
 
         <h2 className={styles.heading}>All Blog Posts</h2>
         <ol className={styles.posts}>
           {posts.map((post) => {
-            const date = new Date(post.last_edited_time).toLocaleString(
+            const date = new Date(post.created_time).toLocaleString(
               "en-US",
               {
                 day: "2-digit",
@@ -36,6 +36,8 @@ export default function Home({ posts }) {
             );
             const slug = post.properties?.Slug?.rich_text[0].text.content;
             console.log(slug);
+            // const creationDate = post.created_time;
+            // console.log(creationDate);
             return (
               <li key={post.id} className={styles.post}>
                 <h3 className={styles.postTitle}>
