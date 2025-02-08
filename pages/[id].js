@@ -194,6 +194,9 @@ const renderBlock = (block) => {
     case "column": {
       return <div>{block.children.map((child) => renderBlock(child))}</div>;
     }
+    case "video": {
+      return "Video here";
+    }
     default:
       return `❌ Unsupported block (${
         type === "unsupported" ? "unsupported by Notion API" : type
