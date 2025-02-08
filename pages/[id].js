@@ -195,7 +195,7 @@ const renderBlock = (block) => {
       return <div>{block.children.map((child) => renderBlock(child))}</div>;
     }
     case "video": {
-      return "Video here";
+      return value;
     }
     default:
       return `❌ Unsupported block (${
