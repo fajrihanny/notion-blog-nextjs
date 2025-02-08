@@ -34,7 +34,7 @@
   letter-spacing: 0.5px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: white) {
   .heading {
     border-color: #343539;
   }

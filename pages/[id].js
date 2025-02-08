@@ -132,12 +132,19 @@ const renderBlock = (block) => {
         const lastElementInArray = videoSourceArray[videoSourceArray.length - 1];
         const embed_id = lastElementInArray.split("=")[1];
         const embed_link = "https://www.youtube.com/embed/"+embed_id; 
-        return <p center><iframe center width="854" height="480" src={embed_link} allowFullScreen/></p>;
+        return (
+            <iframe center width="854" height="480" src={embed_link} allowFullScreen/>
+        );
       }
     case "divider":
       return <hr key={id} />;
     case "quote":
-      return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
+      return (
+        <blockquote>
+          <quote className={styles.quote}>{value.rich_text[0].plain_text}
+        </quote>
+        </blockquote>
+      );
     case "code":
       return (
         <pre className={styles.pre}>
@@ -222,16 +229,17 @@ export default function Post({ page, blocks }) {
       </Head>
 
       <article className={styles.container}>
+          
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
         </h1>
         <section>
+        <Link href="/" className={styles.back}>
+            ← All Posts
+          </Link>
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
-          <Link href="/" className={styles.back}>
-            ← All Posts
-          </Link>
         </section>
       </article>
     </div>

@@ -10,34 +10,40 @@ export default function Home({ posts }) {
   return (
     <div>
       <Head>
-        <title>Fanny's Reviews on Notion</title>
+        <title>Fanny's Mini Blog</title>
         {/* Title on the Blog - not on the page itself */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.container}>
         <header className={styles.header}>
-          <h1>Fanny's Reviews on Notion</h1>
+          <h1>Fanny's Mini Blog</h1>
           <p>
             I write stuffs.
           </p>
         </header>
 
-        <h2 className={styles.heading}>All Blog Posts</h2>
+        <h2 className={styles.heading}>What do I write</h2>
         <ol className={styles.posts}>
           {posts.map((post) => {
+            //console.log(post);
+            //console.log("Published "+post.properties.Published.checkbox);
+            //console.log("Slug "+post.properties.Slug.rich_text[0].text.content);
+            //console.log("Tags "+post.properties.Tags.multi_select[0].name);
+            //console.log("Image URL: "+post.properties.Image.url);
+            //console.log(Object.entries(post.properties.Blurbs.rich_text));
+
+            //const blurbs = post.properties.Blurbs.rich_text[0].text;
             const date = new Date(post.created_time).toLocaleString(
-              "en-US",
+              "en-GB",
               {
-                day: "2-digit",
-                month: "long",
+                day: "numeric",
+                month: "numeric",
                 year: "numeric",
+                weekday:"long",
               },
             );
-            const slug = post.properties?.Slug?.rich_text[0].text.content;
-            console.log(slug);
-            // const creationDate = post.created_time;
-            // console.log(creationDate);
+            
             return (
               <li key={post.id} className={styles.post}>
                 <h3 className={styles.postTitle}>
@@ -45,7 +51,6 @@ export default function Home({ posts }) {
                     <Text text={post.properties.Name.title} />
                   </Link>
                 </h3>
-
                 <p className={styles.postDescription}>{date}</p>
                 <Link href={`/${post.id}`}>Read full post →</Link>
               </li>
