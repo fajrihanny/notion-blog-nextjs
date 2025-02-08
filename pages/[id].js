@@ -124,7 +124,16 @@ const renderBlock = (block) => {
           <img src={src} alt={caption} />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
-      );
+      ); 
+      case "video": {
+        const video_url = value.type === "external" ? value.external.url : value.file.url;
+        const video_caption = value.caption ? value.caption[0]?.plain_text : "";
+        const videoSourceArray = video_url.split("/");
+        const lastElementInArray = videoSourceArray[videoSourceArray.length - 1];
+        const embed_id = lastElementInArray.split("=")[1];
+        const embed_link = "https://www.youtube.com/embed/"+embed_id; 
+        return <p center><iframe center width="854" height="480" src={embed_link} allowFullScreen/></p>;
+      }
     case "divider":
       return <hr key={id} />;
     case "quote":
@@ -193,9 +202,6 @@ const renderBlock = (block) => {
     }
     case "column": {
       return <div>{block.children.map((child) => renderBlock(child))}</div>;
-    }
-    case "video": {
-      return value;
     }
     default:
       return `❌ Unsupported block (${
