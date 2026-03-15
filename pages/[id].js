@@ -233,6 +233,7 @@ export default function Post({ page, blocks }) {
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
         </h1>
+        {/* <p>{page.properties.Date.created_time}</p> */}
         <section>
         <Link href="/" className={styles.back}>
             ← All Posts

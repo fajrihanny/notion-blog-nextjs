@@ -34,15 +34,15 @@ export default function Home({ posts }) {
             //console.log(Object.entries(post.properties.Blurbs.rich_text));
 
             //const blurbs = post.properties.Blurbs.rich_text[0].text;
-            const date = new Date(post.created_time).toLocaleString(
+            const created_date = new Date(post.created_time).toLocaleString(
               "en-GB",
               {
                 day: "numeric",
                 month: "numeric",
-                year: "numeric",
-                weekday:"long",
+                year: "numeric"
               },
             );
+            
             
             return (
               <li key={post.id} className={styles.post}>
@@ -51,7 +51,7 @@ export default function Home({ posts }) {
                     <Text text={post.properties.Name.title} />
                   </Link>
                 </h3>
-                <p className={styles.postDescription}>{date}</p>
+                <p className={styles.postDescription}>{created_date}</p>
                 <Link href={`/${post.id}`}>Read full post →</Link>
               </li>
             );
