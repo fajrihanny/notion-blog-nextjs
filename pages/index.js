@@ -39,7 +39,8 @@ export default function Home({ posts }) {
               {
                 day: "numeric",
                 month: "numeric",
-                year: "numeric"
+                year: "numeric",
+                weekday: "short"
               },
             );
             
